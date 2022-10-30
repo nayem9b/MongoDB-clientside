@@ -1,12 +1,23 @@
-import React from "react";
-import { useLoaderData } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useLoaderData } from "react-router-dom";
 
 const Home = () => {
   const users = useLoaderData();
+  const [displayUsers, setDisplayUsers] = useState(users);
   return (
     <div>
       <h1>This is home</h1>
       <h2> users : {users.length}</h2>
+      <div>
+        {displayUsers.map((user) => (
+          <p key={user._id}>
+            {user.name} {user.email}
+            <Link to={`/update/${user._id}`}>
+              <button>update</button>
+            </Link>
+          </p>
+        ))}
+      </div>
     </div>
   );
 };

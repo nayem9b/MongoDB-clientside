@@ -22,6 +22,7 @@ const AddUser = () => {
     const newUser = { ...user };
     newUser[field] = value;
     setUser(newUser);
+    console.log(user);
   };
   return (
     <div>
